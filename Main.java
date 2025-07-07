@@ -185,6 +185,10 @@ public class Main {
                     scanner.nextLine();
                     break;
 
+                case 8:
+                    System.out.println("Program berakhir");
+                    break;
+
                 default:
                     System.out.println("Pilihan tidak valid. Silakan masukkan angka antara 1 dan 7.");
             }
