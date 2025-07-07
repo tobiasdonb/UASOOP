@@ -31,7 +31,7 @@ public class Main {
         System.out.print("Masukkan Lingkar Leher (cm): ");
         double lingkarLeher = scanner.nextDouble();
 
-        // Create Person object
+        // objek Person
         Person Person = new Person(nama, umur, berat, tinggi, jenisKelamin,
                              lingkarPinggang, lingkarPinggul, lingkarLeher);
 
@@ -39,28 +39,28 @@ public class Main {
         Person.viewPersonInfo();
         System.out.println();
 
-        // Calculate and view Body Fat Percentage
+        // kalkulasi dan view Body Fat Percentage
         BodyFatPercentage bfp = new BodyFatPercentage(Person);
         bfp.viewBFP();
         System.out.println();
 
-        // Calculate and view Basal Metabolic Rate
+        // kalkulasi dan view Basal Metabolic Rate
         BasalMetabolicRate bmr = new BasalMetabolicRate(Person, bfp);
         bmr.viewBMR();
         System.out.println();
 
-        // Input activity factor for TDEE
+        // Input activity factor untuk TDEE
         System.out.print(
-                "Masukkan Faktor Aktivitas (e.g., 1.2 for sedentary, 1.375 for light activity, 1.4-1.5 for Moderate activity, 1.75 for Heavy Activity):");
+                "Masukkan Faktor Aktivitas (1.2 minim gerak, 1.375 Aktivitas ringan, 1.4-1.5  Aktivitas sedang, 1.75 for Aktivitas berat): ");
         System.out.print("Faktor Aktivitas: ");
         double faktorAktivitas = scanner.nextDouble();
 
-        // Calculate and view Total Daily Energy Expenditure
+        // kalkulasi dan view Total Daily Energy Expenditure
         TotalDailyEnergyExpenditure tdee = new TotalDailyEnergyExpenditure(Person, bmr, faktorAktivitas);
         tdee.viewTDEE();
         System.out.println();
 
-        // Calculate and view Body Mass Index
+        // kalkulasi dan view Body Mass Index
         BodyMassIndex bmi = new BodyMassIndex(Person);
         bmi.viewBMI();
         System.out.println();
