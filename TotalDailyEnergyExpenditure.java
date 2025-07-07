@@ -1,4 +1,5 @@
 // TotalDailyEnergyExpenditure.java
+// total
 public class TotalDailyEnergyExpenditure {
     private Person Person;
     private BasalMetabolicRate bmr;
