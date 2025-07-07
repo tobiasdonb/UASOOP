@@ -64,16 +64,16 @@ public class Person {
 
     // Methods as per table
     public void viewPersonInfo() {
-        System.out.println("--- Person Information ---");
-        System.out.println("Nama: " + nama);
-        System.out.println("Umur: " + umur + " tahun");
-        System.out.println("Berat: " + berat + " kg");
-        System.out.println("Tinggi: " + tinggi + " cm");
-        System.out.println("Jenis Kelamin: " + jenisKelamin);
+        System.out.println("--- Informasi Pasien ---");
+        System.out.println("Nama            : " + nama);
+        System.out.println("Umur            : " + umur + " tahun");
+        System.out.println("Berat           : " + berat + " kg");
+        System.out.println("Tinggi          : " + tinggi + " cm");
+        System.out.println("Jenis Kelamin   : " + jenisKelamin);
         System.out.println("Lingkar Pinggang: " + lingkarPinggang + " cm");
-        System.out.println("Lingkar Pinggul: " + lingkarPinggul + " cm");
-        System.out.println("Lingkar Leher: " + lingkarLeher + " cm");
-        System.out.println("Tanggal Rekap: " + recapDate);
+        System.out.println("Lingkar Pinggul : " + lingkarPinggul + " cm");
+        System.out.println("Lingkar Leher   : " + lingkarLeher + " cm");
+        System.out.println("Tanggal Rekap   : " + recapDate);
     }
 
     // This method allows updating Person information
