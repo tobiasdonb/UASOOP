@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         // Declare variables outside the loop to use them across the program
         String nama = "";
         int umur = 0;
@@ -31,8 +31,9 @@ public class Main {
             System.out.println("4. Basal Metabolic Rate");
             System.out.println("5. Total Daily Energy Expenditure");
             System.out.println("6. Body Mass Index");
-            System.out.println("7. Keluar");
-            System.out.print("Masukkan pilihan Anda (1-7): ");
+            System.out.println("7. Lihat Semua data");
+            System.out.println("8. Keluar");
+            System.out.print("Masukkan pilihan Anda (1-8): ");
 
             // Membaca pilihan pengguna
             choice = scanner.nextInt();
@@ -41,7 +42,8 @@ public class Main {
             // Memproses pilihan
             switch (choice) {
                 case 1:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     System.out.println("\n--- Input Data Pengguna ---");
                     System.out.print("Masukkan Nama: ");
                     nama = scanner.nextLine();
@@ -67,18 +69,30 @@ public class Main {
 
                     System.out.print("Masukkan Lingkar Leher (cm): ");
                     lingkarLeher = scanner.nextDouble();
-                    
+
+                    System.out.print(
+                            "Masukkan Faktor Aktivitas (1.2 minim gerak, 1.375 Aktivitas ringan, 1.4-1.5 Aktivitas sedang, 1.75 for Aktivitas berat): ");
+                    faktorAktivitas = scanner.nextDouble();
+
                     // Membuat Person object
                     person = new Person(nama, umur, berat, tinggi, jenisKelamin,
                             lingkarPinggang, lingkarPinggul, lingkarLeher);
 
-                    for (int i = 0; i < 50; ++i) System.out.println();
+                    // Mengkalkulasi semua data
+                    bfp = new BodyFatPercentage(person);
+                    bmr = new BasalMetabolicRate(person, bfp);
+                    tdee = new TotalDailyEnergyExpenditure(person, bmr, faktorAktivitas);
+                    bmi = new BodyMassIndex(person);
+
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println();
                     System.out.println("Data pasien berhasil diinput!");
                     scanner.nextLine();
                     break;
-                    
+
                 case 2:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     if (person != null) {
                         person.viewPersonInfo();
                     } else {
@@ -86,9 +100,10 @@ public class Main {
                     }
                     scanner.nextLine();
                     break;
-                    
+
                 case 3:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     if (person != null) {
                         bfp = new BodyFatPercentage(person);
                         bfp.viewBFP();
@@ -97,9 +112,10 @@ public class Main {
                     }
                     scanner.nextLine();
                     break;
-                    
+
                 case 4:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     if (person != null) {
                         if (bfp == null) {
                             bfp = new BodyFatPercentage(person);
@@ -111,9 +127,10 @@ public class Main {
                     }
                     scanner.nextLine();
                     break;
-                    
+
                 case 5:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     if (person != null) {
                         if (bfp == null) {
                             bfp = new BodyFatPercentage(person);
@@ -121,10 +138,7 @@ public class Main {
                         if (bmr == null) {
                             bmr = new BasalMetabolicRate(person, bfp);
                         }
-                        
-                        System.out.print("Masukkan Faktor Aktivitas (1.2 minim gerak, 1.375 Aktivitas ringan, 1.4-1.5 Aktivitas sedang, 1.75 for Aktivitas berat): ");
-                        faktorAktivitas = scanner.nextDouble();
-                        
+
                         tdee = new TotalDailyEnergyExpenditure(person, bmr, faktorAktivitas);
                         tdee.viewTDEE();
                     } else {
@@ -132,9 +146,10 @@ public class Main {
                     }
                     scanner.nextLine();
                     break;
-                    
+
                 case 6:
-                    for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    for (int i = 0; i < 50; ++i)
+                        System.out.println(); // Untuk Clear Screen
                     if (person != null) {
                         bmi = new BodyMassIndex(person);
                         bmi.viewBMI();
@@ -143,16 +158,38 @@ public class Main {
                     }
                     scanner.nextLine();
                     break;
-                    
+
                 case 7:
-                    System.out.println("Terima kasih, program berakhir.");
+                for (int i = 0; i < 50; ++i) System.out.println(); // Untuk Clear Screen
+                    if (person != null) {
+                        System.out.println("--- Surat keterangan rekap data Pasien ---\n");
+                        person.viewPersonInfo();
+                        System.out.println("----------------------------------------");
+                        System.out.println("\n--- Data Kesehatan ---");
+                        if (bfp != null) {
+                            bfp.viewBFP();
+                        }
+                        if (bmr != null) {
+                            bmr.viewBMR();
+                        }
+                        if (tdee != null) {
+                            tdee.viewTDEE();
+                        }
+                        if (bmi != null) {
+                            bmi.viewBMI();
+                        }
+                    } else {
+                        System.out.println("Silakan input data pasien terlebih dahulu (pilihan 1)");
+                    }
+                    System.out.println("\n\nTekan enter untuk kembali ke menu...");
+                    scanner.nextLine();
                     break;
-                    
+
                 default:
                     System.out.println("Pilihan tidak valid. Silakan masukkan angka antara 1 dan 7.");
             }
 
-        } while (choice != 7); // Ulangi selama pilihan bukan 7 (Keluar)
+        } while (choice != 8); // Ulangi selama pilihan bukan 8 (Keluar)
 
         scanner.close(); // Tutup scanner setelah selesai menggunakan
     }
