@@ -17,7 +17,7 @@ public class Main {
 
         System.out.print("Masukkan Tinggi (cm): ");
         double tinggi = scanner.nextDouble();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         System.out.print("Masukkan Jenis Kelamin (Pria/Wanita): ");
         String jenisKelamin = scanner.nextLine();
@@ -42,29 +42,27 @@ public class Main {
         // Calculate and view Body Fat Percentage
         BodyFatPercentage bfp = new BodyFatPercentage(Person);
         bfp.viewBFP();
-        System.out.println("BFP value obtained directly: " + bfp.getBFP());
         System.out.println();
 
         // Calculate and view Basal Metabolic Rate
         BasalMetabolicRate bmr = new BasalMetabolicRate(Person, bfp);
         bmr.viewBMR();
-        System.out.println("BMR value obtained directly: " + bmr.getBMR());
         System.out.println();
 
         // Input activity factor for TDEE
-        System.out.print("Masukkan Faktor Aktivitas (e.g., 1.2 for sedentary, 1.375 for light activity,1.4-1.5 for Moderate activity,1.75 for Heavy Activity): ");
+        System.out.print(
+                "Masukkan Faktor Aktivitas (e.g., 1.2 for sedentary, 1.375 for light activity, 1.4-1.5 for Moderate activity, 1.75 for Heavy Activity):");
+        System.out.print("Faktor Aktivitas: ");
         double faktorAktivitas = scanner.nextDouble();
 
         // Calculate and view Total Daily Energy Expenditure
         TotalDailyEnergyExpenditure tdee = new TotalDailyEnergyExpenditure(Person, bmr, faktorAktivitas);
         tdee.viewTDEE();
-        System.out.println("TDEE value obtained directly: " + tdee.getTDEE());
         System.out.println();
 
         // Calculate and view Body Mass Index
         BodyMassIndex bmi = new BodyMassIndex(Person);
         bmi.viewBMI();
-        System.out.println("BMI value obtained directly: " + bmi.getBMI());
         System.out.println();
 
         scanner.close();
