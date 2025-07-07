@@ -1,19 +1,19 @@
 // BodyFatPercentage.java
 public class BodyFatPercentage {
-    private User user;
+    private Person Person;
     private double bfpValue; // To store the calculated BFP
 
-    public BodyFatPercentage(User user) {
-        this.user = user;
+    public BodyFatPercentage(Person Person) {
+        this.Person = Person;
         calculateBFP(); // Calculate BFP when an object is created
     }
 
     // Private method to calculate BFP based on gender
     private void calculateBFP() {
-        double waist = user.getLingkarPinggang();
-        double neck = user.getLingkarLeher();
-        double height = user.getTinggi(); // in cm
-        String gender = user.getJenisKelamin();
+        double waist = Person.getLingkarPinggang();
+        double neck = Person.getLingkarLeher();
+        double height = Person.getTinggi(); // in cm
+        String gender = Person.getJenisKelamin();
 
         double bodyDensity;
         if (gender.equalsIgnoreCase("Pria")) {
@@ -22,7 +22,7 @@ public class BodyFatPercentage {
             double logHeight = Math.log10(height);
             bodyDensity = 1.0324 - 0.19077 * logWaistNeck + 0.15456 * logHeight;
         } else if (gender.equalsIgnoreCase("Wanita")) {
-            double lingkarPinggul = user.getLingkarPinggul();
+            double lingkarPinggul = Person.getLingkarPinggul();
             // Formula for women (Navy method adapted)
             // Note: The original Navy method for women typically includes hip circumference.
             // If you have a specific formula for women you prefer, replace this.
@@ -49,8 +49,8 @@ public class BodyFatPercentage {
         return bfpValue;
     }
 
-    // Method to get user info (as per table)
-    public User getUserInfo() {
-        return user;
+    // Method to get Person info (as per table)
+    public Person getPersonInfo() {
+        return Person;
     }
 }

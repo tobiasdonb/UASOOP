@@ -1,18 +1,18 @@
 // BodyMassIndex.java
 public class BodyMassIndex {
-    private User user;
+    private Person Person;
     private double bmiValue;
 
-    public BodyMassIndex(User user) {
-        this.user = user;
+    public BodyMassIndex(Person Person) {
+        this.Person = Person;
         calculateBMI();
     }
 
     // Private method to calculate BMI
     // Rumus BMI: berat / (tinggi)^2 (tinggi in meters)
     private void calculateBMI() {
-        double berat = user.getBerat(); // in kg
-        double tinggiInMeters = user.getTinggi() / 100.0; // Convert cm to meters
+        double berat = Person.getBerat(); // in kg
+        double tinggiInMeters = Person.getTinggi() / 100.0; // Convert cm to meters
 
         if (tinggiInMeters > 0) {
             this.bmiValue = berat / (tinggiInMeters * tinggiInMeters);
@@ -32,8 +32,8 @@ public class BodyMassIndex {
         return bmiValue;
     }
 
-    // Method to get user info (as per table)
-    public User getUserInfo() {
-        return user;
+    // Method to get Person info (as per table)
+    public Person getPersonInfo() {
+        return Person;
     }
 }

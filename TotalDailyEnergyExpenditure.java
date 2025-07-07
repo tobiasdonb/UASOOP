@@ -1,12 +1,12 @@
 // TotalDailyEnergyExpenditure.java
 public class TotalDailyEnergyExpenditure {
-    private User user;
+    private Person Person;
     private BasalMetabolicRate bmr;
     private double faktorAktivitas; // Activity factor
     private double tdeeValue;
 
-    public TotalDailyEnergyExpenditure(User user, BasalMetabolicRate bmr, double faktorAktivitas) {
-        this.user = user;
+    public TotalDailyEnergyExpenditure(Person Person, BasalMetabolicRate bmr, double faktorAktivitas) {
+        this.Person = Person;
         this.bmr = bmr;
         this.faktorAktivitas = faktorAktivitas;
         calculateTDEE();

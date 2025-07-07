@@ -31,22 +31,22 @@ public class Main {
         System.out.print("Masukkan Lingkar Leher (cm): ");
         double lingkarLeher = scanner.nextDouble();
 
-        // Create User object
-        User user = new User(nama, umur, berat, tinggi, jenisKelamin,
+        // Create Person object
+        Person Person = new Person(nama, umur, berat, tinggi, jenisKelamin,
                              lingkarPinggang, lingkarPinggul, lingkarLeher);
 
-        // View User Info
-        user.viewUserInfo();
+        // View Person Info
+        Person.viewPersonInfo();
         System.out.println();
 
         // Calculate and view Body Fat Percentage
-        BodyFatPercentage bfp = new BodyFatPercentage(user);
+        BodyFatPercentage bfp = new BodyFatPercentage(Person);
         bfp.viewBFP();
         System.out.println("BFP value obtained directly: " + bfp.getBFP());
         System.out.println();
 
         // Calculate and view Basal Metabolic Rate
-        BasalMetabolicRate bmr = new BasalMetabolicRate(user, bfp);
+        BasalMetabolicRate bmr = new BasalMetabolicRate(Person, bfp);
         bmr.viewBMR();
         System.out.println("BMR value obtained directly: " + bmr.getBMR());
         System.out.println();
@@ -56,13 +56,13 @@ public class Main {
         double faktorAktivitas = scanner.nextDouble();
 
         // Calculate and view Total Daily Energy Expenditure
-        TotalDailyEnergyExpenditure tdee = new TotalDailyEnergyExpenditure(user, bmr, faktorAktivitas);
+        TotalDailyEnergyExpenditure tdee = new TotalDailyEnergyExpenditure(Person, bmr, faktorAktivitas);
         tdee.viewTDEE();
         System.out.println("TDEE value obtained directly: " + tdee.getTDEE());
         System.out.println();
 
         // Calculate and view Body Mass Index
-        BodyMassIndex bmi = new BodyMassIndex(user);
+        BodyMassIndex bmi = new BodyMassIndex(Person);
         bmi.viewBMI();
         System.out.println("BMI value obtained directly: " + bmi.getBMI());
         System.out.println();

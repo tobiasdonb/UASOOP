@@ -1,11 +1,11 @@
 // BasalMetabolicRate.java
 public class BasalMetabolicRate {
-    private User user;
+    private Person Person;
     private BodyFatPercentage bfp;
     private double bmrValue;
 
-    public BasalMetabolicRate(User user, BodyFatPercentage bfp) {
-        this.user = user;
+    public BasalMetabolicRate(Person Person, BodyFatPercentage bfp) {
+        this.Person = Person;
         this.bfp = bfp;
         calculateBMR();
     }
@@ -13,7 +13,7 @@ public class BasalMetabolicRate {
     // Private method to calculate BMR
     // Rumus BMR: BMR = 370 + (21.6 * (berat * (1 - bfp)))
     private void calculateBMR() {
-        double berat = user.getBerat(); // in kg
+        double berat = Person.getBerat(); // in kg
         double bfpDecimal = bfp.getBFP() / 100.0; // Convert BFP percentage to decimal
 
         this.bmrValue = 370 + (21.6 * (berat * (1 - bfpDecimal)));
@@ -34,8 +34,8 @@ public class BasalMetabolicRate {
         return bfp;
     }
 
-    // Method to get user info (as per table)
-    public User getUserInfo() {
-        return user;
+    // Method to get Person info (as per table)
+    public Person getPersonInfo() {
+        return Person;
     }
 }
