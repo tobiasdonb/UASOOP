@@ -52,7 +52,7 @@ public class Main {
         System.out.println();
 
         // Input activity factor for TDEE
-        System.out.print("Masukkan Faktor Aktivitas (e.g., 1.2 for sedentary, 1.375 for light activity): ");
+        System.out.print("Masukkan Faktor Aktivitas (e.g., 1.2 for sedentary, 1.375 for light activity,1.4-1.5 for Moderate activity,1.75 for Heavy Activity): ");
         double faktorAktivitas = scanner.nextDouble();
 
         // Calculate and view Total Daily Energy Expenditure
