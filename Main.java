@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Declare variables outside the loop to use them across the program
+        // Deklarasi Variabel main
         String nama = "";
         int umur = 0;
         double berat = 0;
@@ -24,7 +24,7 @@ public class Main {
         int choice;
         do {
             // Menampilkan menu
-            System.out.println("\n--- Menu Health Calculator ---");
+            System.out.println("\n--- Kalkulator Kesehatan ---");
             System.out.println("1. Input data Pasien");
             System.out.println("2. Lihat data Pasien");
             System.out.println("3. Body Fat Percentage");
@@ -185,16 +185,12 @@ public class Main {
                     scanner.nextLine();
                     break;
 
-                case 8:
-                    System.out.println("Program berakhir");
-                    break;
-
                 default:
-                    System.out.println("Pilihan tidak valid. Silakan masukkan angka antara 1 dan 7.");
+                    System.out.println("Pilihan tidak valid. Silakan masukkan angka antara 1 dan 8.");
             }
 
-        } while (choice != 8); // Ulangi selama pilihan bukan 8 (Keluar)
+        } while (choice != 8); // Pilih 8 untuk keluar
 
-        scanner.close(); // Tutup scanner setelah selesai menggunakan
+        scanner.close();
     }
 }
