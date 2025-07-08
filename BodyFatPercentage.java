@@ -1,14 +1,14 @@
 // BodyFatPercentage.java
 public class BodyFatPercentage {
     private Person Person;
-    private double bfpValue; // To store the calculated BFP
+    private double bfpValue; 
 
     public BodyFatPercentage(Person Person) {
         this.Person = Person;
-        calculateBFP(); // Calculate BFP when an object is created
+        calculateBFP();
     }
 
-    // Private method to calculate BFP based on gender
+    // Hitung BFP berdasarkan jenis kelamin
     private void calculateBFP() {
         double waist = Person.getLingkarPinggang();
         double neck = Person.getLingkarLeher();
@@ -17,39 +17,36 @@ public class BodyFatPercentage {
 
         double bodyDensity;
         if (gender.equalsIgnoreCase("Pria")) {
-            // Formula for men
+            // Rumus pria
             double logWaistNeck = Math.log10(waist - neck);
             double logHeight = Math.log10(height);
             bodyDensity = 1.0324 - 0.19077 * logWaistNeck + 0.15456 * logHeight;
         } else if (gender.equalsIgnoreCase("Wanita")) {
+            // Rumus wanita
             double lingkarPinggul = Person.getLingkarPinggul();
-            // Formula for women (Navy method adapted)
-            // Note: The original Navy method for women typically includes hip circumference.
-            // If you have a specific formula for women you prefer, replace this.
-            // This is a common one:
             double logWaistHipNeck = Math.log10(waist + lingkarPinggul - neck);
             double logHeight = Math.log10(height);
-            bodyDensity = 1.247 - 0.107 * logWaistHipNeck + 0.098 * logHeight; // Example female formula, adjust if needed
+            bodyDensity = 1.247 - 0.107 * logWaistHipNeck + 0.098 * logHeight; 
         } else {
             System.err.println("Jenis kelamin tidak valid untuk perhitungan BFP.");
-            this.bfpValue = 0.0; // Set to 0 or throw an exception for invalid gender
+            this.bfpValue = 0.0;
             return;
         }
 
         this.bfpValue = (495 / bodyDensity) - 450;
     }
 
-    // Method to view BFP
+    // view BFP
     public void viewBFP() {
         System.out.printf("Persentase Lemak Tubuh (BFP): %.2f%%\n", bfpValue);
     }
 
-    // Method to get BFP value
+    // get BFP value
     public double getBFP() {
         return bfpValue;
     }
 
-    // Method to get Person info (as per table)
+    // get Person info
     public Person getPersonInfo() {
         return Person;
     }

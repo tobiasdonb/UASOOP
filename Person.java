@@ -4,13 +4,13 @@ import java.time.LocalDate;
 public class Person {
     private String nama;
     private int umur;
-    private double berat; // in kg
-    private double tinggi; // in cm
-    private String jenisKelamin; // "Pria" or "Wanita"
-    private double lingkarPinggang; // in cm
-    private double lingkarPinggul; // in cm
-    private double lingkarLeher; // in cm
-    private LocalDate recapDate; // Date of data entry/update
+    private double berat; // kg
+    private double tinggi; // cm
+    private String jenisKelamin; // "Pria" atau "Wanita"
+    private double lingkarPinggang; // cm
+    private double lingkarPinggul; // cm
+    private double lingkarLeher; // cm
+    private LocalDate recapDate; // rekap
 
     public Person(String nama, int umur, double berat, double tinggi, String jenisKelamin,
                 double lingkarPinggang, double lingkarPinggul, double lingkarLeher) {
@@ -22,10 +22,9 @@ public class Person {
         this.lingkarPinggang = lingkarPinggang;
         this.lingkarPinggul = lingkarPinggul;
         this.lingkarLeher = lingkarLeher;
-        this.recapDate = LocalDate.now(); // Sets the current date upon creation
+        this.recapDate = LocalDate.now(); // waktu input data
     }
 
-    // Getters
     public String getNama() {
         return nama;
     }
@@ -62,7 +61,6 @@ public class Person {
         return recapDate;
     }
 
-    // Methods as per table
     public void viewPersonInfo() {
         System.out.println("--- Informasi Pasien ---");
         System.out.println("Nama            : " + nama);
@@ -76,7 +74,6 @@ public class Person {
         System.out.println("Tanggal Rekap   : " + recapDate);
     }
 
-    // This method allows updating Person information
     public void editPersonInfo(String nama, int umur, double berat, double tinggi, String jenisKelamin,
                              double lingkarPinggang, double lingkarPinggul, double lingkarLeher) {
         this.nama = nama;
